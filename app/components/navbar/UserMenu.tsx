@@ -5,15 +5,15 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import { useState } from "react";
 import userRegisterModal from "@/app/hooks/userRegisterModal";
+import userLoginModal from "@/app/hooks/userLoginModal";
 
 const UserMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const loginModal = userLoginModal();
   const registerModal = userRegisterModal();
 
   const toggleMenu = () => {
     setIsMenuOpen((toggleState) => !toggleState);
-
-    if (isMenuOpen) setIsMenuOpen(false);
   };
 
   return (
@@ -77,7 +77,7 @@ const UserMenu = () => {
             <>
               <MenuItem onClick={registerModal.onOpen} label="Sign up" />
 
-              <MenuItem onClick={() => {}} label="Log in" />
+              <MenuItem onClick={loginModal.onOpen} label="Log in" />
             </>
           </div>
         </div>
